@@ -1,0 +1,41 @@
+<!--
+* @Author: Mehaei
+* @Date:   2020-08-07 18:14:03
+* @Last Modified by:   Mehaei
+* @Last Modified time: 2020-08-07 19:11:32
+* @E-mail: mshuaiwei@gmail.com
+-->
+
+{% extends 'base.html' %} #继承base.html
+
+{% block title %} project detail {% end %}
+
+{% block content %}
+<div class="container">
+    <div class="accordion" id="accordionExample">
+
+    {% for cmd, result in project_info.items() %}
+
+      <div class="card">
+        <div class="card-header" id={{ cmd }}>
+          <h2 class="mb-0">
+            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#{{ cmd }}C" aria-expanded="true" aria-controls={{ cmd }}C>
+              {{ cmd }}
+            </button>
+          </h2>
+        </div>
+
+        <div id={{ cmd }}C class="collapse show" aria-labelledby={{ cmd }} data-parent="#accordionExample">
+          <div class="card-body" style="white-space: pre">
+            {{ result }}
+          </div>
+        </div>
+        {% end %}
+      </div>
+
+</div>
+{% end %}
+
+
+
+
